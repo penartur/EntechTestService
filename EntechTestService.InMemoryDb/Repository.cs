@@ -32,6 +32,11 @@ namespace EntechTestService.InMemoryDb
         {
             lock (syncRoot)
             {
+                if (id >= storage.Count)
+                {
+                    return null;
+                }
+
                 return storage[id];
             }
         }

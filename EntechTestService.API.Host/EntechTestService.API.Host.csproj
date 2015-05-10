@@ -108,6 +108,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntechTestService.Contracts.Internal\EntechTestService.Contracts.Internal.csproj">
+      <Project>{aafc465d-e85e-4a74-8f29-9e39f36d91a2}</Project>
+      <Name>EntechTestService.Contracts.Internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntechTestService.InMemoryDb\EntechTestService.InMemoryDb.csproj">
+      <Project>{bc42af25-bd1f-45a4-b503-6224d7cefe41}</Project>
+      <Name>EntechTestService.InMemoryDb</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

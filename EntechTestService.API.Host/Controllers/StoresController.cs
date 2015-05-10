@@ -1,33 +1,51 @@
-﻿using EntechTestService.API.Host.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using EntechTestService.API.Host.Models;
+using EntechTestService.Contracts.Internal.Repositories;
+using EntechTestService.Contracts.Internal.Model;
 
 namespace EntechTestService.API.Host.Controllers
 {
     public class StoresController : ApiController
     {
+        private readonly IStoreRepository repository;
+
+        public StoresController(IStoreRepository repository)
+        {
+            this.repository = repository;
+        }
+
+        private StoreViewModel ToViewModel(int id, StoreData data)
+        {
+            return new StoreViewModel
+            {
+                Id = id,
+                CreatedAt = data.CreatedAt,
+                LastUpdatedAt = data.LastUpdatedAt,
+                Name = data.Name,
+                Email = data.Email,
+                Phone = data.Phone,
+            };
+        }
+
         // GET: api/Stores
         public IEnumerable<StoreViewModel> Get()
         {
-            return new StoreViewModel[0];
+            return repository.GetAllStores().Select(entity => ToViewModel(entity.Id, entity.Data));
         }
 
         // GET: api/Stores/5
         public IHttpActionResult Get(int id)
         {
-            return Ok(new StoreViewModel
+            var data = repository.GetStore(id);
+            if (data == null)
             {
-                Id = id,
-                CreatedAt = DateTime.Now,
-                LastUpdatedAt = DateTime.Now,
-                Name = string.Format("Store{0}", id),
-                Email = "test@example.com",
-                Phone = "+1234567890",
-            });
+                return NotFound();
+            }
+
+            return Ok(ToViewModel(id, data));
         }
 
         // POST: api/Products
