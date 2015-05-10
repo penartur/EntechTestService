@@ -10,6 +10,7 @@ namespace EntechTestService.API.Host
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            UnityConfig.RegisterComponents(config);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
