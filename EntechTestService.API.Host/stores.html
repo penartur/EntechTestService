@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App</title>
+</head>
+<body>
+
+    <div>
+        <h2>All Stores</h2>
+        <ul id="stores" />
+    </div>
+    <div>
+        <h2>Get by ID</h2>
+        <input type="text" id="storeId" size="5" />
+        <input type="button" value="Get" onclick="get();" />
+        <p id="store" />
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+    var uri = 'api/stores';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+      $.getJSON(uri)
+          .done(function (data) {
+            // On success, 'data' contains a list of products.
+            $.each(data, function (key, item) {
+              // Add a list item for the product.
+              $('<li>', { text: formatItem(item) }).appendTo($('#stores'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.Id + ': ' + item.Name + ' (email ' + item.Email + ', phone ' + item.Phone + ')';
+    }
+
+    function get() {
+      var id = $('#storeId').val();
+      $.getJSON(uri + '/' + id)
+          .done(function (data) {
+            $('#store').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#store').text('Error: ' + err);
+          });
+    }
+    </script>
+</body>
+</html>
