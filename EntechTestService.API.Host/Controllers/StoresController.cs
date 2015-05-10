@@ -49,18 +49,29 @@ namespace EntechTestService.API.Host.Controllers
         }
 
         // POST: api/Products
-        public void Post([FromBody]StoreModel value)
+        public int Post([FromBody]StoreModel value)
         {
+            var createdDate = DateTime.Now;
+            return repository.CreateStore(new StoreData
+            {
+                CreatedAt = createdDate,
+                LastUpdatedAt = createdDate,
+                Name = value.Name,
+                Email = value.Email,
+                Phone = value.Phone,
+            });
         }
 
         // PUT: api/Products/5
         public void Put(int id, [FromBody]StoreModel value)
         {
+            throw new NotImplementedException();
         }
 
         // DELETE: api/Products/5
         public void Delete(int id)
         {
+            throw new NotImplementedException();
         }
     }
 }

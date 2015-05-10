@@ -11,41 +11,67 @@
     </div>
     <div>
         <h2>Get by ID</h2>
-        <input type="text" id="storeId" size="5" />
-        <input type="button" value="Get" onclick="get();" />
+        <p>
+            <input type="text" id="storeId" size="5" />
+            <input type="button" value="Get" onclick="get();" />
+        </p>
         <p id="store" />
+    </div>
+    <div>
+        <h2>Create new store</h2>
+        <p>
+            Name: <input type="text" id="newStoreName" /><br />
+            Email: <input type="text" id="newStoreEmail" /><br />
+            Phone: <input type="text" id="newStorePhone" /><br />
+            <input type="button" value="Create" onclick="create();" />
+        </p>
+        <p id="createStoreResult"/>
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
     var uri = 'api/stores';
 
-    $(document).ready(function () {
-      // Send an AJAX request
-      $.getJSON(uri)
-          .done(function (data) {
-            // On success, 'data' contains a list of products.
-            $.each(data, function (key, item) {
-              // Add a list item for the product.
-              $('<li>', { text: formatItem(item) }).appendTo($('#stores'));
-            });
-          });
-    });
-
     function formatItem(item) {
-      return item.Id + ': ' + item.Name + ' (email ' + item.Email + ', phone ' + item.Phone + ')';
+        return item.Id + ': ' + item.Name + ' (email ' + item.Email + ', phone ' + item.Phone + ')';
+    }
+
+    function loadAll() {
+        $('#stores').empty();
+        // Send an AJAX request
+        $.getJSON(uri)
+            .done(function (data) {
+                // On success, 'data' contains a list of products.
+                $.each(data, function (key, item) {
+                    // Add a list item for the product.
+                    $('<li>', { text: formatItem(item) }).appendTo($('#stores'));
+                });
+            });
     }
 
     function get() {
-      var id = $('#storeId').val();
-      $.getJSON(uri + '/' + id)
-          .done(function (data) {
+        var id = $('#storeId').val();
+        $.getJSON(uri + '/' + id).done(function (data) {
             $('#store').text(formatItem(data));
-          })
-          .fail(function (jqXHR, textStatus, err) {
+        }).fail(function (jqXHR, textStatus, err) {
             $('#store').text('Error: ' + err);
-          });
+        });
     }
+
+    function create() {
+        $.post(uri, {
+            Name: $('#newStoreName').val(),
+            Email: $('#newStoreEmail').val(),
+            Phone: $('#newStorePhone').val()
+        }).done(function (data) {
+            $('#createStoreResult').text('Created store id: ' + data);
+            loadAll();
+        }).fail(function (jqXHR, textStatus, err) {
+            $('#createStoreResult').text('Error: ' + err);
+        });
+    }
+
+    $(document).ready(loadAll);
     </script>
 </body>
 </html>
