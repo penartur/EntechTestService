@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntechTestService.Contracts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntechTestService.InMemoryDb", "EntechTestService.InMemoryDb\EntechTestService.InMemoryDb.csproj", "{BC42AF25-BD1F-45A4-B503-6224D7CEFE41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntechTestService.Services.Validation", "EntechTestService.Services.Validation\EntechTestService.Services.Validation.csproj", "{CD745CDD-83C6-457E-A950-56177A218EAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{CF0EB800-8438-471F-90B6-E3CD35FB858B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{103760A5-EC2B-49BC-A30D-0C9F34A23937}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntechTestService.Services.Validation.UnitTests", "EntechTestService.Services.Validation.UnitTests\EntechTestService.Services.Validation.UnitTests.csproj", "{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +41,24 @@ Global
 		{BC42AF25-BD1F-45A4-B503-6224D7CEFE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC42AF25-BD1F-45A4-B503-6224D7CEFE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC42AF25-BD1F-45A4-B503-6224D7CEFE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD745CDD-83C6-457E-A950-56177A218EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD745CDD-83C6-457E-A950-56177A218EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD745CDD-83C6-457E-A950-56177A218EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD745CDD-83C6-457E-A950-56177A218EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{712A52E9-22A6-465E-8E9E-31B0FD584D6B} = {CF0EB800-8438-471F-90B6-E3CD35FB858B}
+		{196EF546-DA17-4FC0-93E5-91609B122EB1} = {103760A5-EC2B-49BC-A30D-0C9F34A23937}
+		{AAFC465D-E85E-4A74-8F29-9E39F36D91A2} = {CF0EB800-8438-471F-90B6-E3CD35FB858B}
+		{BC42AF25-BD1F-45A4-B503-6224D7CEFE41} = {CF0EB800-8438-471F-90B6-E3CD35FB858B}
+		{CD745CDD-83C6-457E-A950-56177A218EAF} = {CF0EB800-8438-471F-90B6-E3CD35FB858B}
+		{F80D7BE2-47E8-45DF-8BD2-6D9D15E14228} = {103760A5-EC2B-49BC-A30D-0C9F34A23937}
 	EndGlobalSection
 EndGlobal

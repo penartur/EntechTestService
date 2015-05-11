@@ -117,6 +117,10 @@
       <Project>{bc42af25-bd1f-45a4-b503-6224d7cefe41}</Project>
       <Name>EntechTestService.InMemoryDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EntechTestService.Services.Validation\EntechTestService.Services.Validation.csproj">
+      <Project>{cd745cdd-83c6-457e-a950-56177a218eaf}</Project>
+      <Name>EntechTestService.Services.Validation</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
