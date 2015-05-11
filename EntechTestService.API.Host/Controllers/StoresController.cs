@@ -49,17 +49,17 @@ namespace EntechTestService.API.Host.Controllers
         }
 
         // POST: api/Products
-        public int Post([FromBody]StoreModel value)
+        public IHttpActionResult Post([FromBody]StoreModel value)
         {
             var createdDate = DateTime.Now;
-            return repository.CreateStore(new StoreData
+            return Ok(repository.CreateStore(new StoreData
             {
                 CreatedAt = createdDate,
                 LastUpdatedAt = createdDate,
                 Name = value.Name,
                 Email = value.Email,
                 Phone = value.Phone,
-            });
+            }));
         }
 
         // PUT: api/Products/5
