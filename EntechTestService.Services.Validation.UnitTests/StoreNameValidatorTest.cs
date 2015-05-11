@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EntechTestService.Contracts.Internal.Model;
 using EntechTestService.Contracts.Internal.Repositories;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EntechTestService.Services.Validation.UnitTests
 {

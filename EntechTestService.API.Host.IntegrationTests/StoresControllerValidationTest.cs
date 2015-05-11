@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using System.Web.Http.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EntechTestService.API.Host.Controllers;
-using EntechTestService.InMemoryDb;
 using EntechTestService.API.Host.Models;
-using System.Web.Http.ModelBinding;
+using EntechTestService.InMemoryDb;
 
 namespace EntechTestService.API.Host.IntegrationTests
 {
