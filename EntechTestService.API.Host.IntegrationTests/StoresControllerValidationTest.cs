@@ -38,7 +38,7 @@ namespace EntechTestService.API.Host.IntegrationTests
 
         private string CreateTestPhone()
         {
-            return string.Format("TestStore{0}", random.Next());
+            return string.Format("+000{0}", random.Next(1, 1000000));
         }
 
         private void AssertSpecificResultType<T>(IHttpActionResult result, Action<T> specificAction)
