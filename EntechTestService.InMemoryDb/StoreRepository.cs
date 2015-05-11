@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using EntechTestService.Contracts.Internal.Model;
 using EntechTestService.Contracts.Internal.Repositories;
 
@@ -34,9 +36,9 @@ namespace EntechTestService.InMemoryDb
             impl.Delete(id);
         }
 
-        public ICollection<IdentifiedDataEntity<StoreData>> GetAllStores()
+        public ICollection<IdentifiedDataEntity<StoreData>> FindStores(Expression<Predicate<StoreData>> filter)
         {
-            return impl.GetAll();
+            return impl.Find(filter.Compile());
         }
 
         public StoreData GetStore(int id)

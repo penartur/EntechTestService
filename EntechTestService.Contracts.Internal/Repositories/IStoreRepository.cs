@@ -1,15 +1,13 @@
 ﻿using EntechTestService.Contracts.Internal.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace EntechTestService.Contracts.Internal.Repositories
 {
     public interface IStoreRepository
     {
-        ICollection<IdentifiedDataEntity<StoreData>> GetAllStores();
+        ICollection<IdentifiedDataEntity<StoreData>> FindStores(Expression<Predicate<StoreData>> filter);
 
         StoreData GetStore(int id);
 

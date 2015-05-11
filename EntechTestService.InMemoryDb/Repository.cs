@@ -11,14 +11,14 @@ namespace EntechTestService.InMemoryDb
 
         private readonly List<T> storage = new List<T> { null }; //so that indexing will start with 1
 
-        public ICollection<IdentifiedDataEntity<T>> GetAll()
+        public ICollection<IdentifiedDataEntity<T>> Find(Predicate<T> filter)
         {
             lock (syncRoot)
             {
                 var result = new List<IdentifiedDataEntity<T>>();
                 for (var i = 0; i < storage.Count; i++)
                 {
-                    if (storage[i] != null)
+                    if (storage[i] != null && filter(storage[i]))
                     {
                         result.Add(new IdentifiedDataEntity<T>(i, storage[i]));
                     }

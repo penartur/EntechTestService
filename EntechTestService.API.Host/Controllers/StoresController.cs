@@ -33,7 +33,7 @@ namespace EntechTestService.API.Host.Controllers
         // GET: api/Stores
         public IEnumerable<StoreViewModel> Get()
         {
-            return repository.GetAllStores().Select(entity => ToViewModel(entity.Id, entity.Data));
+            return repository.FindStores(_ => true).Select(entity => ToViewModel(entity.Id, entity.Data));
         }
 
         // GET: api/Stores/5
