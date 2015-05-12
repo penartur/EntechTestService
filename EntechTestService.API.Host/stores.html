@@ -68,6 +68,9 @@
             loadAll();
         }).fail(function (jqXHR, textStatus, err) {
             $('#createStoreResult').text('Error: ' + err);
+            if (jqXHR.responseJSON) {
+                $("<pre />").text(JSON.stringify(jqXHR.responseJSON, null, 4)).appendTo($('#createStoreResult'));
+            }
         });
     }
 
