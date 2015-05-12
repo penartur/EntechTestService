@@ -21,7 +21,7 @@ namespace EntechTestService.API.Host.IntegrationTests
 
         public StoresControllerValidationTest()
         {
-            random = new Random();
+            random = new Random(123);
             db = new Db();
             storesController = new StoresController(db.StoreRepository);
         }

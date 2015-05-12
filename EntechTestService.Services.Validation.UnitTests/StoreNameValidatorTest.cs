@@ -63,7 +63,7 @@ namespace EntechTestService.Services.Validation.UnitTests
 
         public StoreNameValidatorTest()
         {
-            random = new Random();
+            random = new Random(321);
             idOfDuplicateStore = random.Next(1, 1000000);
             duplicateStoreName = string.Format("store_{0}_{1}", random.Next(1, 1000000), random.Next(1, 1000000));
             storeNameValidator = new StoreNameValidator(new FakeRepository(duplicateStoreName, idOfDuplicateStore));
